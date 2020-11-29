@@ -1,3 +1,8 @@
+#  Deep Q-Network (DQN): Training anfd playing with OpenAI Gym framework Pong
+#  ==========================================================================
+#
+# References:
+# https://torres.ai/deep-reinforcement-learning-explained-series/
 # https://towardsdatascience.com/deep-q-network-dqn-i-bce08bdf2af
 # https://github.com/jorditorresBCN/Deep-Reinforcement-Learning-Explained/blob/master/DRL_15_16_17_DQN_Pong.ipynb
 #
@@ -8,12 +13,15 @@
 # see https://github.com/openai/gym/issues/1726#issuecomment-550580367
 # or https://stackoverflow.com/questions/63080326/could-not-find-module-atari-py-ale-interface-ale-c-dll-or-one-of-its-dependenc/64104353#64104353
 #
-# python -c "import atari_py;print(atari_py.list_games())"
-
-# FloydHub:
+# test: python -c "import atari_py;print(atari_py.list_games())"
+#
+# Run this file as a FloydHub job in project rl-dqn (already created):
+# pip install -U floyd-cli
 # floyd login
 # floyd init rl-dqn
-# floyd run --gpu --env pytorch "python main.py"
+# floyd run --gpu --env pytorch 'python main.py'
+# When the run is complete, download the results (job 5):
+# floyd data clone philhu/projects/rl-dqn/5
 
 import datetime
 import numpy as np
@@ -40,7 +48,7 @@ warnings.filterwarnings("ignore", category=UserWarning)
 # Main training Loop
 # ***************************************
 
-gw.make_env(config.DEFAULT_ENV_NAME)env = 
+env = gw.make_env(config.DEFAULT_ENV_NAME)
 writer = SummaryWriter(comment="-" + config.DEFAULT_ENV_NAME)
 
 # the main DQN neural network that we are going to train
