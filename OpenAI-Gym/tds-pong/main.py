@@ -1,4 +1,4 @@
-#  Deep Q-Network (DQN): Training anfd playing with OpenAI Gym framework Pong
+#  Deep Q-Network (DQN): Training and playing with OpenAI Gym framework Pong
 #  ==========================================================================
 #
 # References:
@@ -124,7 +124,7 @@ while True:  # while not converged
         # if this mean rewards exceed the specified MEAN_REWARD_BOUND
         # (19.0 in our case) then we stop training
         if mean_reward > config.MEAN_REWARD_BOUND:
-            print("Sloved in %d frames!" % frame_idx)
+            print("Solved in %d frames!" % frame_idx)
             break
 
     if len(buffer) < config.replay_start_size:
