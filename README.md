@@ -36,7 +36,7 @@ The training took approximatly 25 min. on my computer (I7, 1 GPU).
 
 A video showing the trained agent over 5 episodes is available in the folder videos:
 
-<video src="cartpole/videos/random-agent-12202020-170640.mp4" width="320" height="200" controls preload></video>
+[![Alt Text]('[cartpole/images/trained-agent.png](https://img.youtube.com/vi/azqA_WNW0-k/0.jpg)](https://youtu.be/azqA_WNW0-k)
 
 A video was also generated using a random policy. 
 
