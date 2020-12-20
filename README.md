@@ -34,11 +34,13 @@ Training this environment using a simple network with one hidden layer with 100 
 
 The training took approximatly 25 min. on my computer (I7, 1 GPU). 
 
-A video showing the trained agent over 5 episodes is available in the folder videos:
+A video showing the trained agent over 5 episodes was created (available in the folder videos):
 
-[![Alt Text]('[cartpole/images/trained-agent.png](https://img.youtube.com/vi/azqA_WNW0-k/0.jpg)](https://youtu.be/azqA_WNW0-k)
+[![Alt Text](https://img.youtube.com/vi/azqA_WNW0-k/0.jpg) ](https://youtu.be/azqA_WNW0-k)
 
-A video was also generated using a random policy. 
+A video was also generated using a random policy: 
+
+[![Alt Text](https://img.youtube.com/vi/0sNOnWcRHeI/0.jpg)](https://youtu.be/0sNOnWcRHeI))
 
 The code for defining the TF-Agent and training it is in main.py. The code for generating these videos is in play.py 
 
