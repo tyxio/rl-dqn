@@ -40,6 +40,7 @@ A video showing the trained agent over 5 episodes is available in the folder vid
   <iframe src="cartpole/videos/random-agent-12202020-170640.mp4" frameborder="0" allowfullscreen="true"> </iframe>
 </figure>
 
+
 A video was also generated using a random policy. 
 
 The code for defining the TF-Agent and training it is in main.py. The code for generating these videos is in play.py 
