@@ -36,15 +36,15 @@ The training took approximatly 25 min. on my computer (I7, 1 GPU).
 
 A video showing the trained agent over 5 episodes is available in the folder videos:
 
-<figure class="video_container">
-  <iframe src="cartpole/videos/random-agent-12202020-170640.mp4" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
-
+<video src="cartpole/videos/random-agent-12202020-170640.mp4" width="320" height="200" controls preload></video>
 
 A video was also generated using a random policy. 
 
 The code for defining the TF-Agent and training it is in main.py. The code for generating these videos is in play.py 
 
+Conclusions:
 
+1. A DQN can be trained successfully for the cartpole environment
+2. Using a RL framework like TF-Agents simplifies greatly the code. Of course, there is a learning curve...
 
 
