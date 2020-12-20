@@ -14,9 +14,15 @@ from tf_agents.policies import random_tf_policy
 
 print(tf.__version__)
 
+# https://github.com/tensorflow/tensorflow/issues/25403#issuecomment-708787479
+physical_devices = tf.config.list_physical_devices('GPU')
+try:
+  tf.config.experimental.set_memory_growth(physical_devices[0], True)
+  assert tf.config.experimental.get_memory_growth(physical_devices[0])
+except:
+  pass
+
 # a function to embed videos in the notebook.
-
-
 def embed_mp4(filename):
     """Embeds an mp4 file."""
     video = open(filename, 'rb').read()
@@ -53,11 +59,11 @@ eval_py_env = suite_gym.load('CartPole-v0')
 eval_env = tf_py_environment.TFPyEnvironment(eval_py_env)
 
 # Load the saved policy
-policy_dir = 'policies/cartpole'
+policy_dir = 'cartpole/policies/12192020-180502'
 saved_policy = tf.saved_model.load(policy_dir)
 
 # Prepare the videos folder
-video_dir = 'videos/cartpole'
+video_dir = 'cartpole/videos/'
 if not os.path.exists(video_dir):
     os.makedirs(video_dir)
 video_file = video_dir + "/trained-agent-" + now.strftime("%m%d%Y-%H%M%S")
