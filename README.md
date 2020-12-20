@@ -19,7 +19,7 @@ References:
 
 ## Train a Deep Q Network with TF-Agents
 
-This second example shows how to train a DQN (Deep Q Networks) agent on the cartpole environment using the TF-Agents library. It is the "hello World" project for TF-Agents.
+This second example shows how to train a DQN (Deep Q Networks) agent on the cartpole environment using the TF-Agents library. It is the "Hello World" project for TF-Agents.
 
 References:
 
