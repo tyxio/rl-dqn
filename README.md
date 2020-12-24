@@ -1,23 +1,46 @@
-# rl-dqn
- Reinforcement Learning - DQN examples
+# My Journey into Reinforcement Learning and Deep Q-Learning
 
-## OpenAI Gym PONG
+This repository contains projects that I have choosen to learn Reinforcement Learning (RL) with Deep Q-Network (DQN). I had 2 main goals:
+
+1. Learn how DQN can be implemented in Python
+2. Learn a RL framework that makes this implementation easier. I have choosen TF-Agents as I have worked mainly with Tensorflow up to now.
+
+You will find 4 projects:
+
+1. The PONG game, a first project to understand RL and DQN without a framework;
+2. The Cartpole environment, a simple RL problem to approach TF-Agents;
+3. The Atari Breakout game, a more complex problem to understand the advantages of using a RL framwork like TF-Agents;
+4. The Pacman game, that allowed me to reuse 98% of the code developed for training Breakout
+
+## First DQN: the PONG game
+
+For my first RL DQN project, I have decided to implement the full Deep Q-Learning algorithm, without using a RL framework, to train an agent to play the PONG game.
+
+<img src="tds-pong\images\final_score.PNG" alt="final_score" width="150"/>
+ 
+ My idea was to understand better how DQN can be implemented, particularly the replay buffer and the target model. I read different tutorials and found that Jordi Tores' series "Deep Reinforcement Learning Explained" was the best to get a solid training on RL DQN. 
+
 
 References:  
-* https://torres.ai/deep-reinforcement-learning-explained-series/,  
+* https://torres.ai/deep-reinforcement-learning-explained-series
 
 * https://github.com/jorditorresBCN/Deep-Reinforcement-Learning-Explained/blob/master/DRL_15_16_17_DQN_Pong.ipynb
 
+I trained an agent network with 3 convolutional layers over about 1M steps to reach the maximun reward of 20:
 
+<img src="tds-pong\images\reward.png" alt="reward" width="250"/>
 
-<img src="OpenAI-Gym\tds-pong\images\epsilon.png" alt="epsilon" width="250"/>
-<img src="OpenAI-Gym\tds-pong\images\reward.png" alt="reward" width="250"/>
+<img src="tds-pong\images\logs-end.png" alt="reward" width="500"/>
 
-<img src="OpenAI-Gym\tds-pong\images\logs-end.png" alt="reward" width="500"/>
+Note that I ran the code on the FloyHub platform to benefit from a VM with a GPU. 
 
-<img src="OpenAI-Gym\tds-pong\images\final_score.PNG" alt="final_score" width="200"/>
+Here is a video showing that the DQN agent was well trained (he is on the right side):
 
-## Train a cartpole DQN with TF-Agents
+[![IMAGE ALT TEXT](https://img.youtube.com/vi/EFc5bdf8fos/0.jpg)](https://youtu.be/EFc5bdf8fos)) 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EFc5bdf8fos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Train a Cartpole DQN with TF-Agents
 
 This second example shows how to train a DQN (Deep Q Networks) agent on the cartpole environment using the TF-Agents library. It is the "Hello World" project for TF-Agents. I choose this examnple because it is simple to train, and so I could focus on the TF-Agents architecture.
 
