@@ -1,16 +1,16 @@
 # My Journey into Reinforcement Learning and Deep Q-Learning
 
-This repository contains projects that I have choosen to learn Reinforcement Learning (RL) with Deep Q-Network (DQN). I had 2 main goals:
+This repository contains projects that I have choosen to learn __Reinforcement Learning__ (RL) with __Deep Q-Network__ (DQN). I had 2 main goals:
 
 1. Learn how DQN can be implemented in Python
-2. Learn a RL framework that makes this implementation easier. I have choosen TF-Agents as I have worked mainly with Tensorflow up to now.
+2. Learn a RL framework that makes this implementation easier. I have choosen __TF-Agents__ as I have worked mainly with Tensorflow up to now.
 
 You will find 4 projects:
 
-1. The PONG game, a first project to understand RL and DQN without a framework;
-2. The Cartpole environment, a simple RL problem to approach TF-Agents;
-3. The Atari Breakout game, a more complex problem to understand the advantages of using a RL framwork like TF-Agents;
-4. The Pacman game, that allowed me to reuse 98% of the code developed for training Breakout
+1. The __PONG__ game, a first project to understand RL and DQN without a framework;
+2. The __Cartpole__ environment, a simple RL problem to approach TF-Agents;
+3. The __Atari Breakout__ game, a more complex problem to understand the advantages of using a RL framwork like TF-Agents;
+4. The __Pacman__ game, that allowed me to reuse 98% of the code developed for training Breakout
 
 ## First DQN: the PONG game
 
@@ -36,9 +36,7 @@ Note that I ran the code on the FloyHub platform to benefit from a VM with a GPU
 
 Here is a video showing that the DQN agent was well trained (he is on the right side):
 
-<a href="https://youtu.be/EFc5bdf8fos
-" target="_blank"><img src="https://img.youtube.com/vi/EFc5bdf8fos/0.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="5" /></a>
+<a href="https://youtu.be/EFc5bdf8fos" target="_blank"><img src="https://img.youtube.com/vi/EFc5bdf8fos/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="5" /></a>
 
 ## Train a Cartpole DQN with TF-Agents
 
@@ -59,11 +57,11 @@ The training took approximatly 25 min. on my computer (I7, 1 GPU).
 
 A video showing the trained agent over 5 episodes was created (available in the folder videos):
 
-[![Alt Text](https://img.youtube.com/vi/azqA_WNW0-k/0.jpg)](https://youtu.be/azqA_WNW0-k "Click to open the Youtube video")
+<a href="https://youtu.be/azqA_WNW0-k" target="_blank"><img src="https://img.youtube.com/vi/azqA_WNW0-k/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="5" /></a>
 
 A video was also generated using a random policy: 
 
-[![Alt Text](https://img.youtube.com/vi/0sNOnWcRHeI/0.jpg)](https://youtu.be/0sNOnWcRHeI "Click to open the Youtube video")
+<a href="https://youtu.be/0sNOnWcRHeI" target="_blank"><img src="https://img.youtube.com/vi/0sNOnWcRHeI/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="5" /></a>
 
 The code for defining the TF-Agent and training it is in main.py. The code for generating these videos is in play.py 
 
@@ -80,13 +78,13 @@ The Atari Breakout environment and its DQN training with TF-Agents are described
 
 Training an Atari breakout agent requires much more ressources thant the cartpole environment. A. Géron suggests 10E7 steps. On my machine, it would require 8 days... So I have limited the training to 10E6 steps. After 16 hours of calculation, the average return approaches 30 which is still far from 200 that can be obtained with more ressources:
 
-<img src="breakout/images/averageReturnMetric.png" alt="epsilon" width="400"/>
+<img src="breakout/images/averageReturnMetric.png" alt="epsilon" width="300"/>
 
 But I consider it is not bad because it validates the algorithm and we can see already a big improvement over a random policy:
 
-[![Alt Text](https://img.youtube.com/vi/7_hV9potEDg/0.jpg)](https://youtu.be/7_hV9potEDg "Click to open the Youtube video"))
 
+<a href="https://youtu.be/7_hV9potEDg" target="_blank"><img src="https://img.youtube.com/vi/7_hV9potEDg/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="5" /></a>
 
 ## Solving Pacman with TF-Agents DQN
 
-Finally: Pacman. Well, it was much easier than I though thanks to the Breakout project I have before. 
+Finally: Pacman. Well, it was much easier than I though thanks to the Breakout project I have done before. 
