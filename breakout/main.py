@@ -248,6 +248,7 @@ def train_agent(n_iterations):
         print("\r{} loss:{:.5f}".format(
             iteration, train_loss.loss.numpy()), end="")
         if iteration % config.TRAINING_LOG_INTERVAL == 0:
+            utils.print_time_stats(train_start, iteration)
             print("\r")
             log_metrics(train_metrics)
         if iteration % config.TRAINING_SAVE_POLICY_INTERVAL == 0:
@@ -261,6 +262,7 @@ def train_agent(n_iterations):
     save_agent_policy()
     utils.writer.flush()
 
+train_start = datetime.datetime.now()
 train_agent(n_iterations=config.TRAINING_STEPS)
 
 print(">>>Training ends at ", datetime.datetime.now())

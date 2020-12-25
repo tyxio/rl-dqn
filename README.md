@@ -88,3 +88,13 @@ But I consider it is not bad because it validates the algorithm and we can see a
 ## Solving Pacman with TF-Agents DQN
 
 Finally: Pacman. Well, it was much easier than I though thanks to the Breakout project I have done before. 
+
+
+
+## Appendix 1 - Run on Ubuntu 18
+
+1. See https://www.tensorflow.org/install/pip#ubuntu-macos
+2. pip install --upgrade tf-agents
+3. pip install --upgrade numpy
+4. sudo apt-get install python3-matplotlib python-opencv
+5. pip install gym>=0.17.3 atari-py 

@@ -72,3 +72,12 @@ def check_gpu():
             assert tf.config.experimental.get_memory_growth(physical_devices[0])
         except:
             pass
+
+def print_time_stats(t0, iteration):
+    if (iteration == 0):
+        return
+    t1 = (datetime.datetime.now() - t0).total_seconds()
+    secs_per_iteration = t1 / iteration  
+    remaing_secs = (config.TRAINING_STEPS - iteration) * secs_per_iteration
+    remaining_hours = remaing_secs /3600
+    print(f" 1000 iter: {secs_per_iteration*1000} s - Remaining:{remaining_hours} h")
