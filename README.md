@@ -55,13 +55,12 @@ Training this environment using a simple network with one hidden layer with 100 
 
 The training took approximatly 25 min. on my computer (I7, 1 GPU). 
 
-A video showing the trained agent over 5 episodes was created (available in the folder videos):
+A video showing the trained agent over 5 episodes was created (open in YouTube):
 
-<a href="https://youtu.be/azqA_WNW0-k" target="_blank"><img src="https://img.youtube.com/vi/azqA_WNW0-k/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="5" /></a>
 
-A video was also generated using a random policy: 
-
-<a href="https://youtu.be/0sNOnWcRHeI" target="_blank"><img src="https://img.youtube.com/vi/0sNOnWcRHeI/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="5" /></a>
+| trained cartpole (5 episodes)  |  random policy (5 episodes) |
+|---|---|
+|  <a href="https://youtu.be/azqA_WNW0-k" target="_blank"><img src="https://img.youtube.com/vi/azqA_WNW0-k/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="5" /></a>  | <a href="https://youtu.be/0sNOnWcRHeI" target="_blank"><img src="https://img.youtube.com/vi/0sNOnWcRHeI/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="5" /></a> 
 
 The code for defining the TF-Agent and training it is in main.py. The code for generating these videos is in play.py 
 
@@ -87,9 +86,17 @@ But I consider it is not bad because it validates the algorithm and we can see a
 
 ## Solving Pacman with TF-Agents DQN
 
-Finally: Pacman. Well, it was much easier than I though thanks to the Breakout project I have done before. 
+Finally: Pacman. Well, it was much easier than I though thanks to the Breakout project I have done before. I have reused the code and changed the name of the OpenAI Gym environment to MsPacman-v0 (actually to MsPacmanNoFrameskip-v0 because the default Atari environment applies random frame skipping and max pooling and we must train on the raw, nonskipping variant).
 
+Again, I was limited by the (free) resources and trained Pacman over 1.000.000 steps (A. Geron recommends 10x more steps). An average episode length of around 800 is obtained (episodes with a length > 2000 are actually possible, see the video below). The average return metric shows that there is still room for improvement.
 
+|   |   |
+|---|---|
+|  <img src="pacman/images/averageEpisodeLengthMetric.png" alt="epsilon" width="300"/>  | <img src="pacman/images/averageReturnMetric.png" alt="epsilon" width="300"/>  
+
+It's time for the video. Not perfect but already quite good for just a few hours of training:
+
+ <a href="https://youtu.be/Bd0pOrQlutA" target="_blank"><img src="https://img.youtube.com/vi/Bd0pOrQlutA/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="5" /></a>
 
 ## Appendix 1 - Run on Ubuntu 18
 
