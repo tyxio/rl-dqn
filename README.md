@@ -8,17 +8,17 @@ This repository contains projects that I have choosen to learn __Reinforcement L
 You will find 4 projects:
 
 1. The __PONG__ game, a first project to understand RL and DQN without a framework;
-2. The __Cartpole__ environment, a simple RL problem to approach TF-Agents;
+2. The __Cartpole__ environment, a simple RL problem I have selected to approach TF-Agents;
 3. The __Atari Breakout__ game, a more complex problem to understand the advantages of using a RL framwork like TF-Agents;
 4. The __Pacman__ game, that allowed me to reuse 98% of the code developed for training Breakout
 
 ## First DQN: the PONG game
 
-For my first RL DQN project, I have decided to implement the full Deep Q-Learning algorithm, without using a RL framework, to train an agent to play the PONG game.
+For my first RL DQN project, I have decided to implement the Deep Q-Learning algorithm, without using a RL framework, to train an agent to play the PONG game.
 
-<img src="tds-pong\images\final_score.png" alt="final_score" width="150"/>
+<img src="pong/images/final_score.png" alt="final_score" width="150"/>
  
- My idea was to understand better how DQN can be implemented, particularly the replay buffer and the target model. I read different tutorials and found that Jordi Tores' series "Deep Reinforcement Learning Explained" was the best to get a solid training on RL DQN. 
+ My idea was to understand how DQN can be implemented, particularly the replay buffer and the target model. I read different tutorials and found that Jordi Tores' series "Deep Reinforcement Learning Explained" was the best to get a solid training on RL DQN. 
 
 
 References:  
@@ -26,13 +26,12 @@ References:
 
 * https://github.com/jorditorresBCN/Deep-Reinforcement-Learning-Explained/blob/master/DRL_15_16_17_DQN_Pong.ipynb
 
-I trained an agent network with 3 convolutional layers over about 1M steps to reach the maximun reward of 20:
+I trained the agent network with 3 convolutional layers over about 1M steps to reach the maximun reward of 20:
 
-<img src="tds-pong\images\reward.png" alt="reward" width="250"/>
+<img src="pong/images/reward.png" alt="reward" width="250"/>
 
-<img src="tds-pong\images\logs-end.png" alt="reward" width="500"/>
-
-Note that I ran the code on the FloyHub platform to benefit from a VM with a GPU. 
+<img src="pong/images/logs-end.png" alt="reward" width="500"/>
+ 
 
 Here is a video showing that the DQN agent was well trained (he is on the right side):
 
@@ -40,7 +39,7 @@ Here is a video showing that the DQN agent was well trained (he is on the right 
 
 ## Train a Cartpole DQN with TF-Agents
 
-This second example shows how to train a DQN (Deep Q Networks) agent on the cartpole environment using the TF-Agents library. It is the "Hello World" project for TF-Agents. I choose this example because it is simple to train, and so I could focus on the TF-Agents architecture.
+The second example shows how to train a DQN (Deep Q Networks) agent on the cartpole environment using the TF-Agents library. It is the "Hello World" project for TF-Agents. I choose this example because it is simple to train, and so I could focus on the TF-Agents architecture.
 
 References:
 
@@ -55,15 +54,13 @@ Training this environment using a simple network with one hidden layer with 100 
 
 The training took approximatly 25 min. on my computer (I7, 1 GPU). 
 
-A video showing the trained agent over 5 episodes was created (available in the folder videos):
+A video showing the trained agent over 5 episodes was created. You can compare with an agent trained with a random policy (the videos open in YouTube):
 
-<a href="https://youtu.be/azqA_WNW0-k" target="_blank"><img src="https://img.youtube.com/vi/azqA_WNW0-k/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="5" /></a>
 
-A video was also generated using a random policy: 
+| trained cartpole (5 episodes)  |  random policy (5 episodes) |
+|---|---|
+|  <a href="https://youtu.be/azqA_WNW0-k" target="_blank"><img src="https://img.youtube.com/vi/azqA_WNW0-k/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="5" /></a>  | <a href="https://youtu.be/0sNOnWcRHeI" target="_blank"><img src="https://img.youtube.com/vi/0sNOnWcRHeI/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="5" /></a> 
 
-<a href="https://youtu.be/0sNOnWcRHeI" target="_blank"><img src="https://img.youtube.com/vi/0sNOnWcRHeI/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="5" /></a>
-
-The code for defining the TF-Agent and training it is in main.py. The code for generating these videos is in play.py 
 
 Conclusions:
 
@@ -87,14 +84,27 @@ But I consider it is not bad because it validates the algorithm and we can see a
 
 ## Solving Pacman with TF-Agents DQN
 
-Finally: Pacman. Well, it was much easier than I though thanks to the Breakout project I have done before. 
+Finally: Pacman. Well, it was much easier than I though thanks to the Breakout project I have done before. I have reused the code and changed the name of the OpenAI Gym environment to MsPacman-v0 (actually to MsPacmanNoFrameskip-v0 because the default Atari environment applies random frame skipping and max pooling and we must train on the raw, nonskipping variant).
 
+Again, I was limited by the (free) resources and trained Pacman over 1.000.000 steps (A. Geron recommends 10x more steps). An average episode length of around 800 is obtained (episodes with a length > 2000 are actually possible, see the video below). The average return metric shows that there is still room for improvement.
 
+| Average Episode Length  |  Average Return |
+|---|---|
+|  <img src="pacman/images/averageEpisodeLengthMetric.png" alt="epsilon" width="300"/>  | <img src="pacman/images/averageReturnMetric.png" alt="epsilon" width="300"/>  
 
-## Appendix 1 - Run on Ubuntu 18
+It's time for the video. Not perfect, but already quite good for just a few hours of training:
+
+ <a href="https://youtu.be/Bd0pOrQlutA" target="_blank"><img src="https://img.youtube.com/vi/Bd0pOrQlutA/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="5" /></a>
+
+ ## The Next Journey
+
+The 4 examples I have described above gave me a good understanding of how RL DQN can be implemented using the TF-Agents framework. There is of course still a lot to discover in this area. As a software enginneer, I'd like to experiment more how the scripts that I have run on my personal latptop (a performant Dell XPS i7 32Gb) can be executed in an environment with multiple GPUs. Indeed, running training models during days is not viable outside the personal experimention or academic domain. In production, parallel processing distributed among multiple CPUs/GPUs are necessary to reduce the time from lab to market. For that, I believe that [Dask](https://dask.org/) and [RAPIDS](https://rapids.ai/) are the next things to learn.
+
+### Appendix 1 - Run a tf-agents script on Ubuntu 18
 
 1. See https://www.tensorflow.org/install/pip#ubuntu-macos
-2. pip install --upgrade tf-agents
-3. pip install --upgrade numpy
+2. pip3 install --upgrade numpy tf-agents
 4. sudo apt-get install python3-matplotlib python-opencv
-5. pip install gym>=0.17.3 atari-py 
+5. pip3 install gym>=0.17.3 atari-py 
+
+A PDF of this readme page can be generated using [grip](https://github.com/joeyespo/grip)
