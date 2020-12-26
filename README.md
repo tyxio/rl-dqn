@@ -16,7 +16,7 @@ You will find 4 projects:
 
 For my first RL DQN project, I have decided to implement the Deep Q-Learning algorithm, without using a RL framework, to train an agent to play the PONG game.
 
-<img src="tds-pong\images\final_score.png" alt="final_score" width="150"/>
+<img src="pong/images/final_score.png" alt="final_score" width="150"/>
  
  My idea was to understand how DQN can be implemented, particularly the replay buffer and the target model. I read different tutorials and found that Jordi Tores' series "Deep Reinforcement Learning Explained" was the best to get a solid training on RL DQN. 
 
@@ -28,9 +28,9 @@ References:
 
 I trained the agent network with 3 convolutional layers over about 1M steps to reach the maximun reward of 20:
 
-<img src="tds-pong\images\reward.png" alt="reward" width="250"/>
+<img src="pong/images/reward.png" alt="reward" width="250"/>
 
-<img src="tds-pong\images\logs-end.png" alt="reward" width="500"/>
+<img src="pong/images/logs-end.png" alt="reward" width="500"/>
  
 
 Here is a video showing that the DQN agent was well trained (he is on the right side):
@@ -106,3 +106,5 @@ The 4 examples I have described above gave me a good understanding of how RL DQN
 2. pip3 install --upgrade numpy tf-agents
 4. sudo apt-get install python3-matplotlib python-opencv
 5. pip3 install gym>=0.17.3 atari-py 
+
+A PDF of this readme page can be generated using [grip](https://github.com/joeyespo/grip)
