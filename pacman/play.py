@@ -12,6 +12,7 @@ from tf_agents.environments.tf_py_environment import TFPyEnvironment
 from tf_agents.policies import tf_policy
 from tf_agents.trajectories.policy_step import PolicyStep
 
+
 import config
 import env_loader
 
@@ -29,20 +30,21 @@ if gpus:
     # Memory growth must be set before GPUs have been initialized
     print(e)
 
-def create_video(py_environment: PyEnvironment, tf_environment: TFPyEnvironment, 
-        policy: tf_policy, num_episodes=10, video_filename='imageio.mp4'):
-	print("Generating video %s" % video_filename)
-	with imageio.get_writer(video_filename, fps=60) as video:
-		for episode in range(num_episodes):
-			print("Generating episode %d of %d" % (episode, num_episodes))
 
-			time_step = tf_environment.reset()
-			video.append_data(py_environment.render())
-			while not time_step.is_last():
-				action_step = policy.action(time_step)
-				
-				time_step = tf_environment.step(action_step.action)
-				video.append_data(py_environment.render())
+def create_video(py_environment: PyEnvironment, tf_environment: TFPyEnvironment,
+        policy: tf_policy, num_episodes=10, video_filename='imageio.mp4'):
+  print("Generating video %s" % video_filename)
+  with imageio.get_writer(video_filename, fps=60) as video:
+    for episode in range(num_episodes):
+      episode_return = 0.0
+      time_step = tf_environment.reset()
+      video.append_data(py_environment.render())
+      while not time_step.is_last():
+        action_step = policy.action(time_step)			
+        time_step = tf_environment.step(action_step.action)
+        episode_return += time_step.reward
+        video.append_data(py_environment.render())
+      print(f"Generated episode {episode} of {num_episodes}. Return:{episode_return} ")
 
 now = datetime.datetime.now()
 

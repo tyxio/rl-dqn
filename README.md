@@ -86,19 +86,19 @@ But I consider it is not bad because it validates the algorithm and we can see a
 
 Finally: Pacman. Well, it was much easier than I though thanks to the Breakout project I have done before. I have reused the code and changed the name of the OpenAI Gym environment to MsPacman-v0 (actually to MsPacmanNoFrameskip-v0 because the default Atari environment applies random frame skipping and max pooling and we must train on the raw, nonskipping variant).
 
-Again, I was limited by the (free) resources and trained Pacman over 1.000.000 steps (A. Geron recommends 10x more steps). An average episode length of around 800 is obtained (episodes with a length > 2000 are actually possible, see the video below). The average return metric shows that there is still room for improvement.
+Again, I was limited by the resources and trained Pacman over 1.8M steps on Google Cloud (see Appendix 2). Note that A. Geron recommends 10M  steps. An average return per episode of ~ 2300 is obtained. 
 
 | Average Episode Length  |  Average Return |
 |---|---|
 |  <img src="pacman/images/averageEpisodeLengthMetric.png" alt="epsilon" width="300"/>  | <img src="pacman/images/averageReturnMetric.png" alt="epsilon" width="300"/>  
 
-It's time for the video. Not perfect, but already quite good for just a few hours of training:
+It's time for the video. Not perfect, but already better than what I could perform as a human agent:
 
- <a href="https://youtu.be/Bd0pOrQlutA" target="_blank"><img src="https://img.youtube.com/vi/Bd0pOrQlutA/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="5" /></a>
+ <a href="https://youtu.be/r_ykSNO9dbc" target="_blank"><img src="https://img.youtube.com/vi/r_ykSNO9dbc/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="5" /></a>
 
  ## The Next Journey
 
-The 4 examples I have described above gave me a good understanding of how RL DQN can be implemented using the TF-Agents framework. There is of course still a lot to discover in this area. As a software enginneer, I'd like to experiment more how the scripts that I have run on my personal latptop (a performant Dell XPS i7 32Gb) can be executed in an environment with multiple GPUs. Indeed, running training models during days is not viable outside the personal experimention or academic domain. In production, parallel processing distributed among multiple CPUs/GPUs are necessary to reduce the time from lab to market. For that, I believe that [Dask](https://dask.org/) and [RAPIDS](https://rapids.ai/) are the next things to learn.
+The 4 examples I have described above gave me a good understanding of how RL DQN can be implemented using the TF-Agents framework. There is of course still a lot to discover as the model is only part of what it takes to succeed with a machine learning project. As a software enginneer, I'd like to experiment more how the scripts that I have run on my personal latptop or on Google Cloud can be executed in an environment with multiple GPUs. Indeed, running training models during days is not viable outside the personal experimention or academic domain. In production, parallel processing distributed among multiple CPUs/GPUs are necessary to reduce the time from lab to market. For that, I believe that [Dask](https://dask.org/) and [RAPIDS](https://rapids.ai/) are the next things to learn. 
 
 ### Appendix 1 - Run a tf-agents script on Ubuntu 18
 
@@ -106,5 +106,13 @@ The 4 examples I have described above gave me a good understanding of how RL DQN
 2. pip3 install --upgrade numpy tf-agents
 4. sudo apt-get install python3-matplotlib python-opencv
 5. pip3 install gym>=0.17.3 atari-py 
+
+### Appendix 2 - Run a tf-agents script on Google Cloud
+
+1. Choose a machine with GPU and enough memory e.g. n1-highmem-8 (8 vCPUs, 52 GB memory) with 1 x NVIDIA Tesla P4
+2. SSH
+3. conda activate base
+4. cd cd rl-dqn/
+5. python3 ./breakout/main.py
 
 A PDF of this readme page can be generated using [grip](https://github.com/joeyespo/grip)
